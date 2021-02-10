@@ -5,8 +5,18 @@ const Modal = {
   // close() {
   //   document.querySelector('.modal-overlay').classList.remove('active')
   // }
+
   toggle() {
-    document.querySelector('.modal-overlay').classList.toggle('active')
+    const isModalActive = document.querySelector('.modal-overlay').classList.toggle('active')
+    this.clearModal(isModalActive)
+
+    return isModalActive
+  },
+
+  clearModal(isModalActive) {
+    if( !isModalActive ) {
+      Form.clearFields()
+    }
   }
 }
 
